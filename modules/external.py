@@ -1,6 +1,7 @@
 # Adopted from https://github.com/ControlEverythingCommunity/MPL3115A2
 
 from smbus2 import SMBus
+import time
 
 # Get I2C bus
 bus = SMBus(1)
@@ -20,18 +21,17 @@ def get_temp():
     #		0xB9(185)	Active mode, OSR = 128, Altimeter mode
     bus.write_byte_data(0x60, 0x26, 0xB9)
 
+    time.sleep(1)
+
     # MPL3115A2 address, 0x60(96)
     # Read data back from 0x00(00), 6 bytes
     # status, tHeight MSB1, tHeight MSB, tHeight LSB, temp MSB, temp LSB
     data = bus.read_i2c_block_data(0x60, 0x00, 6)
 
     # Convert the data to 20-bits
-    tHeight = ((data[1] * 65536) + (data[2] * 256) + (data[3] & 0xF0)) / 16
     temp = ((data[4] * 256) + (data[5] & 0xF0)) / 16
-    altitude = tHeight / 16.0
     cTemp = temp / 16.0
 
-    # Units: C
     return cTemp
 
 
@@ -40,6 +40,8 @@ def get_pressure():
     # Select control register, 0x26(38)
     #		0x39(57)	Active mode, OSR = 128, Barometer mode
     bus.write_byte_data(0x60, 0x26, 0x39)
+
+    time.sleep(1)
 
     # MPL3115A2 address, 0x60(96)
     # Read data back from 0x00(00), 4 bytes
@@ -50,7 +52,6 @@ def get_pressure():
     pres = ((data[1] * 65536) + (data[2] * 256) + (data[3] & 0xF0)) / 16
     pressure = (pres / 4.0) / 1000.0
 
-    # Units: kPa
     return pressure
 
 
@@ -67,6 +68,8 @@ def get_altitude():
     # Select control register, 0x26(38)
     #		0xB9(185)	Active mode, OSR = 128, Altimeter mode
     bus.write_byte_data(0x60, 0x26, 0xB9)
+
+    time.sleep(1)
 
     # MPL3115A2 address, 0x60(96)
     # Read data back from 0x00(00), 6 bytes
