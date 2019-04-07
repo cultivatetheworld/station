@@ -8,7 +8,8 @@ import adafruit_ccs811
 
 # Get I2C bus
 bus = SMBus(1)
-ccs811 = adafruit_ccs811.CCS811(bus)
+i2c_bus = busio.I2C(board.SCL, board.SDA)
+ccs811 = adafruit_ccs811.CCS811(i2c_bus)
 
 
 def get_temp():
