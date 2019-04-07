@@ -4,6 +4,7 @@ def start():
     print("Temperature (C): ", external.get_temp())
     print("Altitude (m): ", external.get_altitude())
     print("Pressure (kPa):", external.get_pressure())
+    print("Relative humidity (%)", external.get_humidity())
 
 
 if __name__ == "__main__":

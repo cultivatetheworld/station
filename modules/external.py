@@ -90,4 +90,4 @@ def get_altitude():
 
 def get_humidity():
     humidity = Adafruit_DHT.read_retry(dht_sensor, dht_pin)[0]
-    return humidity
+    return humidity/100
