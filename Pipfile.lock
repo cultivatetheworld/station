@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "53f583f6a342138fef67126f0b95019b5300ce2ee3ca1218d8b6ac803735c1d4"
+            "sha256": "82d6d63118bb42eb05ac070a07729dc1031a71a36ec7aaf8f4f946db7b4bdcee"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,13 +16,58 @@
         ]
     },
     "default": {
+        "adafruit-blinka": {
+            "hashes": [
+                "sha256:13e3afcd0895d6172be837d1f625fc0478dba0453ce288bcd759c9bb85ba81a4"
+            ],
+            "version": "==1.2.8"
+        },
+        "adafruit-circuitpython-busdevice": {
+            "hashes": [
+                "sha256:c02a649347cbe0bf6ba091fd2886be08cd3bdb22148ef2a820a771afd8b1acd3"
+            ],
+            "version": "==2.2.9"
+        },
+        "adafruit-circuitpython-ccs811": {
+            "hashes": [
+                "sha256:1b4e6fce9d660b5a993830678d9fee6da848c4e15652a337ed87943f80ca4c5f"
+            ],
+            "index": "pypi",
+            "version": "==1.1.4"
+        },
+        "adafruit-circuitpython-register": {
+            "hashes": [
+                "sha256:d1749f54e416eaf6ef4138fa022e9a909035c0c6411df810fa7d327a582cbb6b"
+            ],
+            "version": "==1.7.0"
+        },
+        "adafruit-platformdetect": {
+            "hashes": [
+                "sha256:7ad147c759b5a661e19e6c31985efe93076efc644f38576dadcdee00469ddf40"
+            ],
+            "version": "==1.0.0"
+        },
+        "adafruit-pureio": {
+            "hashes": [
+                "sha256:e65cd929f1d8e109513ed1e457c2742bf4f15349c1a9b7f5b1e04191624d7488"
+            ],
+            "version": "==0.2.3"
+        },
         "smbus2": {
             "hashes": [
-                "sha256:4d5aae2f65d39056bb44e8906d5c503f8ee7e02fadb0a6433f1091a9ce528dde",
-                "sha256:9193094f0694587d77e8575a6a7511d4791d28d53983ba4507b17eae0787d0b1"
+                "sha256:4d5aae2f65d39056bb44e8906d5c503f8ee7e02fadb0a6433f1091a9ce528dde"
             ],
             "index": "pypi",
             "version": "==0.2.3"
+        },
+        "sysv-ipc": {
+            "hashes": [
+                "sha256:b284e961274c67ed3debfdd8a43f197451c5f100955142bbed380258c6c73e06",
+                "sha256:b59fbd42c9de27b42fdda69c4aa7556312112dc6ac7246e44cd875cf049e4273",
+                "sha256:cd70548a92218ede2da499080b31e52f1d7cf60716c5cc7d468ec89e8b73c530"
+            ],
+            "markers": "platform_system != 'Windows'",
+            "version": "==1.0.0"
         }
     },
     "develop": {}

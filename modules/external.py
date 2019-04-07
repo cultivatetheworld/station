@@ -2,9 +2,13 @@
 
 from smbus2 import SMBus
 import time
+import board
+import busio
+import adafruit_ccs811
 
 # Get I2C bus
 bus = SMBus(1)
+ccs811 = adafruit_ccs811.CCS811(bus)
 
 
 def get_temp():
@@ -82,5 +86,12 @@ def get_altitude():
 
     return altitude
 
+
+def get_eco2():
+    return ccs811.eco2
+
+
+def get_tvoc():
+    return ccs811.tvoc
 
 
