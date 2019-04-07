@@ -2,12 +2,14 @@
 
 from smbus2 import SMBus
 import time
-import board
-import busio
-import adafruit_ccs811
+import Adafruit_DHT
 
 # Get I2C bus
 bus = SMBus(1)
+
+# DHT22 instance
+dht_sensor = Adafruit_DHT.DHT22
+dht_pin = 18
 
 
 def get_temp():
@@ -84,3 +86,8 @@ def get_altitude():
     altitude = tHeight / 16.0
 
     return altitude
+
+
+def get_humidity():
+    humidity = Adafruit_DHT.read_retry(dht_sensor, dht_pin)[0]
+    return humidity
